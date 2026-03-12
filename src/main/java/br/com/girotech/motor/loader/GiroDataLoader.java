@@ -47,19 +47,19 @@ public class GiroDataLoader implements CommandLineRunner {
     @Transactional
     public void run(String... args) {
         if (this.clienteRepositorio.count() > 0) {
-            log.info("[GIRO TECH SYSTEM] ► Banco já populado ({} clientes encontrados). Carga ignorada.", this.clienteRepositorio.count());
+            log.info("[GIRO TECH SYSTEM] Banco ja populado ({} clientes encontrados). Carga ignorada.", this.clienteRepositorio.count());
             return;
         }
         this.exibirBannerInicial();
         Faker faker = new Faker(new Locale("pt", "BR"));
         Random random = new Random(42L);
-        log.info("[GIRO TECH SYSTEM] ► Iniciando carga de categorias...");
+        log.info("[GIRO TECH SYSTEM] Iniciando carga de categorias...");
         List<Categoria> categorias = this.criarCategorias();
-        log.info("[GIRO TECH SYSTEM] ► Iniciando carga de produtos ({} itens)...", 120);
+        log.info("[GIRO TECH SYSTEM] Iniciando carga de produtos ({} itens)...", 120);
         List<Produto> produtos = this.criarProdutos(categorias, faker, random);
-        log.info("[GIRO TECH SYSTEM] ► Iniciando carga de clientes ({} clientes)...", 50);
+        log.info("[GIRO TECH SYSTEM] Iniciando carga de clientes ({} clientes)...", 50);
         List<Cliente> clientes = this.criarClientes(faker, random);
-        log.info("[GIRO TECH SYSTEM] ► Iniciando carga de pedidos ({} pedidos)...", 200);
+        log.info("[GIRO TECH SYSTEM] Iniciando carga de pedidos ({} pedidos)...", 200);
         this.criarPedidos(clientes, produtos, faker, random);
         this.exibirResumoFinal();
     }
@@ -73,7 +73,7 @@ public class GiroDataLoader implements CommandLineRunner {
             salvas.add((Categoria)this.categoriaRepositorio.save(c));
         }
 
-        log.info("[GIRO TECH SYSTEM] ✔ {} categorias carregadas ({} em tendência).", salvas.size(), salvas.stream().filter(Categoria::getTendencia).count());
+        log.info("[GIRO TECH SYSTEM] {} categorias carregadas ({} em tendencia).", salvas.size(), salvas.stream().filter(Categoria::getTendencia).count());
         return salvas;
     }
 
@@ -95,7 +95,7 @@ public class GiroDataLoader implements CommandLineRunner {
             todos.add((Produto)this.produtoRepositorio.save(fisico));
         }
 
-        log.info("[GIRO TECH SYSTEM] ✔ {} produtos carregados ({} digitais, {} físicos).", new Object[]{todos.size(), metade, metade});
+        log.info("[GIRO TECH SYSTEM] {} produtos carregados ({} digitais, {} fisicos).", new Object[]{todos.size(), metade, metade});
         return todos;
     }
 
@@ -111,7 +111,7 @@ public class GiroDataLoader implements CommandLineRunner {
             clientes.add((Cliente)this.clienteRepositorio.save(cliente));
         }
 
-        log.info("[GIRO TECH SYSTEM] ✔ {} clientes carregados.", clientes.size());
+        log.info("[GIRO TECH SYSTEM] {} clientes carregados.", clientes.size());
         return clientes;
     }
 
@@ -127,7 +127,7 @@ public class GiroDataLoader implements CommandLineRunner {
             pedidos.add((Pedido)this.pedidoRepositorio.save(pedido));
         }
 
-        log.info("[GIRO TECH SYSTEM] ✔ {} pedidos carregados.", pedidos.size());
+        log.info("[GIRO TECH SYSTEM] {} pedidos carregados.", pedidos.size());
     }
 
     private void exibirBannerInicial() {
