@@ -57,11 +57,17 @@ As configurações de conexão ficam em `src/main/resources/application.properti
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/girotech
 spring.datasource.username=postgres
-spring.datasource.password=Cahfeina@0521
+spring.datasource.password=${DB_PASSWORD}
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 server.port=8080
 ```
+
+> **⚠️ Importante:** Nunca suba senhas reais no repositório. Crie um arquivo `.env` na raiz do projeto com a variável `DB_PASSWORD=sua_senha_aqui` ou passe via linha de comando:
+>
+> ```bash
+> DB_PASSWORD=sua_senha ./mvnw spring-boot:run
+> ```
 
 ---
 
