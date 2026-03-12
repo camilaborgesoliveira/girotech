@@ -63,7 +63,7 @@ spring.jpa.show-sql=true
 server.port=8080
 ```
 
-> **⚠️ Importante:** Nunca suba senhas reais no repositório. Crie um arquivo `.env` na raiz do projeto com a variável `DB_PASSWORD=sua_senha_aqui` ou passe via linha de comando:
+> **Importante:** Nunca suba senhas reais no repositório. Crie um arquivo `.env` na raiz do projeto com a variável `DB_PASSWORD=sua_senha_aqui` ou passe via linha de comando:
 >
 > ```bash
 > DB_PASSWORD=sua_senha ./mvnw spring-boot:run
@@ -90,10 +90,10 @@ Pelo IntelliJ, basta dar Run na classe `br.com.girotech.motor.GiroTechApplicatio
 Quando a aplicação subir, você vai ver no console algo como:
 
 ```
-[GIRO TECH SYSTEM] ✔ 10 categorias carregadas (5 em tendência).
-[GIRO TECH SYSTEM] ✔ 120 produtos carregados (60 digitais, 60 físicos).
-[GIRO TECH SYSTEM] ✔ 50 clientes carregados.
-[GIRO TECH SYSTEM] ✔ 200 pedidos carregados.
+[GIRO TECH SYSTEM] 10 categorias carregadas (5 em tendência).
+[GIRO TECH SYSTEM] 120 produtos carregados (60 digitais, 60 físicos).
+[GIRO TECH SYSTEM] 50 clientes carregados.
+[GIRO TECH SYSTEM] 200 pedidos carregados.
 ```
 
 Pra confirmar que tá tudo certo, acesse no navegador:
